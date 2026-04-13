@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Countdown Timer</title>
+
+    <style>
+        body { text-align: center; font-family: Arial; margin-top: 50px; }
+        input, button { padding: 8px; margin: 5px; }
+        #output { font-size: 22px; color: blue; margin-top: 10px; }
+    </style>
+
+</head>
+<body>
+
+<h2>Countdown Timer</h2>
+
+<input type="number" id="num" placeholder="Enter number">
+<button onclick="countdown()">Start</button>
+
+<p id="output"></p>
+
+<script>
+function countdown() {
+    let n = document.getElementById("num").value;
+    let output = document.getElementById("output");
+
+    output.innerHTML = "";
+
+    let i = n;
+
+    let timer = setInterval(function() {
+        if (i < 1) {
+            clearInterval(timer);
+            output.innerHTML += "<br>Done!";
+        } else {
+            output.innerHTML += i + " ";
+            i--;
+        }
+    }, 1000); 
+}
+</script>
+
+</body>
+</html>
